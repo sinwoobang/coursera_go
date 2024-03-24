@@ -1,10 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strconv"
+)
 
 func main() {
-	x := [...]int {1, 2, 3, 4, 5}
-	y := x[0:2]
-	z := x[1:4]
-	fmt.Print(len(y), cap(y), len(z), cap(z))
+	var slice []int = make([]int, 0, 3);
+	for {
+		var input string
+		fmt.Scan(&input)
+		if input == "X" {
+			break;
+		}
+		i, _ := strconv.Atoi(input)
+		slice = append(slice, i)
+		sort.Ints(slice)
+		fmt.Println(slice)
+	}
 }
